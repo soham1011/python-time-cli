@@ -15,8 +15,8 @@ class project:
             try:
                 self.elapsed_time = time.time() - start_time
                 self.start_time = time.time() - self.elapsed_time
-                # if self.elapsed_time % 5 == 0:    
-                    # print('Hello, bkl! 5 seconds have passed and you have {} seconds remaining.'.format(self.timer_length-self.elapsed_time))
+                if self.elapsed_time % 5 == 0:    
+                    print('Hello, bkl! 5 seconds have passed and you have {} seconds remaining.'.format(self.timer_length-self.elapsed_time))
             except KeyboardInterrupt:
                 a = input("""
                       1. press enter to continue:
@@ -29,14 +29,13 @@ class project:
     def randi(self):
         
         print(self.elapsed_time)
-        process = Process(target=self.start_timer, args=process)
+        process = Process(target=self.start_timer)
         
         process.start()
         while process.is_alive():
             if keyboard.is_pressed('q'):
                 process.terminate()
                 break
-            
     def start(self):
         self.initial_start_time = time.time()
         self.randi()
